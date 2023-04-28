@@ -11,9 +11,32 @@
   </style>
   <script>
     const stories = [
-      { emoji: "🧙‍♂️➡️💍➡️👦➡️🚶‍♂️🌋➡️🧝‍♂️🧚🏽‍♂️🧔🏽👨‍🦳➡️👹➡️🕷️➡️💔➡️🦅➡️💍🌋➡️✌️", french: "le seigneur des anneaux" },
-      { emoji: "👸➡️👑🦹‍♀️➡️🌲➡️🏠➡️🪄7️⃣🕴️➡️🍎➡️💤➡️🤴➡️💋➡️🎉", french: "blanche neige et les sept nains" },
-      { emoji: "🕋➡️👤➡️📖➡️☪️➡️🙏➡️5️⃣➡️🕌➡️🌍➡️🌙➡️🎉", french: "histoire de l'islam" }
+      { emoji: "🧙‍♂️➡️💍➡️👦➡️🚶‍♂️🌋➡️🧝‍♂️🧚🏽‍♂️🧔🏽👨‍🦳➡️👹➡️🕷️➡️💔➡️🦅➡️💍🌋➡️✌️", french: "le seigneur des anneaux", keywords: ["seigneur des anneaux", "lotr"] },
+      { emoji: "👸➡️👑🦹‍♀️➡️🌲➡️🏠➡️🪄7️⃣🕴️➡️🍎➡️💤➡️🤴➡️💋➡️🎉", french: "blanche neige et les sept nains", keywords: ["blanche neige", "nain"] },
+      { emoji: "🕋➡️👤➡️📖➡️☪️➡️🙏➡️5️⃣➡️🕌➡️🌍➡️🌙➡️🎉", french: "histoire de l'islam", keywords: ["islam"] },
+      { emoji: "🚢➡️🏝️➡️📙➡️🥥➡️🔥➡️👬➡️🌊", french: "robinson crusoé", keywords: ["robinson crusoé", "crusoé"] },
+      { emoji: "🧛‍♂️➡️🏰➡️🔪➡️👩🩸➡️🌅", french: "dracula", keywords: ["dracula"] },
+      { emoji: "🎩🎓🔬➡️🐇⌚➡️🕳️➡️🎉👑🐛➡️🍄➡️🃏🌹", french: "alice au pays des merveilles", keywords: ["alice", "pays des merveilles"] },
+      { emoji: "👦👧➡️🍞🔥➡️🌲➡️🏠🍬➡️🧙‍♀️➡️🔥", french: "hansel et gretel", keywords: ["hansel", "gretel"] },
+      { emoji: "🧞‍♂️➡️🪔➡️👦➡️👑➡️👸➡️🐯➡️🤴", french: "aladin", keywords: ["aladin"] },
+      { emoji: "🦁👑➡️🦁👦➡️🐗🦜➡️👑➡️🔥➡️✌️", french: "le roi lion", keywords: ["roi lion"] },
+      { emoji: "🧜‍♀️➡️👸➡️🤴➡️🏰➡️💏", french: "la petite sirène", keywords: ["petite sirène"] },
+      { emoji: "👨‍🔬➡️🧪➡️👹➡️🏃‍♀️➡️❄️➡️⛄➡️🔥", french: "frankenstein", keywords: ["frankenstein"] },
+      { emoji: "🚶‍♂️🎒➡️🌎➡️🌲🌳➡️🐻🦊➡️🌊", french: "le tour du monde en 80 jours", keywords: ["tour du monde", "80 jours"] },
+      { emoji: "🧙‍♀️🧹➡️🌪️➡️👠✨➡️🦁🤖🌾➡️🧙‍♂️🎈", french: "le magicien d'Oz", keywords: ["magicien d'Oz", "Oz"] },
+      { emoji: "👩📚➡️🚪🌌➡️🦁🧙‍♀️🚪➡️✨🏰👑", french: "les chroniques de narnia", keywords: ["chroniques de narnia", "narnia"] },
+      { emoji: "🦇👦➡️🧛‍♂️➡️💀➡️🔦➡️🌃", french: "entretien avec un vampire", keywords: ["entretien avec un vampire", "vampire"] },
+      { emoji: "🚂🧙‍♂️👦⚡➡️🏰📚➡️🐍🧹➡️🦉🔮", french: "harry potter", keywords: ["harry potter"] },
+      { emoji: "👩🎻➡️👻🎭➡️💔➡️🎼➡️🎉", french: "le fantôme de l'opéra", keywords: ["fantôme de l'opéra", "opéra"] },
+      { emoji: "🕵️‍♂️🔍➡️🔦➡️📰➡️💼➡️🔬", french: "sherlock holmes", keywords: ["sherlock holmes", "holmes"] },
+      { emoji: "🏹👑➡️🌲➡️🦊➡️💰➡️🏰➡️🎯", french: "robin des bois", keywords: ["robin des bois", "robin"] },
+      { emoji: "🧔🏽🔪➡️👩🔪➡️🌹➡️📜🖋️➡️🇫🇷🏰", french: "cyrano de bergerac", keywords: ["cyrano de bergerac", "cyrano"] },
+      { emoji: "🐳🎣➡️🌊➡️🚢⛵➡️🔱➡️🌪️", french: "moby dick", keywords: ["moby dick", "moby"] },
+      { emoji: "👦🚣➡️🌊➡️🏝️➡️💀➡️💰➡️🏴‍☠️", french: "l'île au trésor", keywords: ["île au trésor", "trésor"] },
+      { emoji: "👨‍🌾🌽➡️🌪️➡️👽🛸➡️🌾➡️📡", french: "les champs de maïs", keywords: ["champs de maïs", "maïs"] },
+      { emoji: "👨‍🎨➡️🖼️➡️👩➡️💐➡️💌➡️🇳🇱", french: "la jeune fille à la perle", keywords: ["jeune fille à la perle", "perle"] },
+      { emoji: "🐺🌕➡️🏞️➡️🐾➡️🌲➡️🐺➡️🌕", french: "appel de la forêt", keywords: ["appel de la forêt", "forêt"] },
+      { emoji: "🚀➡️🔴🌌➡️🤖➡️👨‍🚀➡️👩‍🚀➡️🌍", french: "voyage sur la planète Mars", keywords: ["voyage", "planète Mars", "Mars"] }
     ];
     let currentStory = null;
     let score = 0;
