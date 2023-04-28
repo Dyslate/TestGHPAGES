@@ -25,8 +25,7 @@
     }
 
     function validateGuess() {
-      const frenchGuess = document.getElementById('frenchGuess').innerText;
-      const frenchWords = currentStory.french.split(' ');
+      const frenchGuess = document.getElementById('frenchGuess').value;
 
       if (frenchGuess === currentStory.french) {
         score += 5;
@@ -36,15 +35,14 @@
         document.getElementById('result').innerText = 'Essaye encore!';
       }
       document.getElementById('score').innerText = `Score: ${score}`;
-
-      document.getElementById('frenchGuess').innerHTML = frenchWords.map(word => frenchGuess.includes(word) ? `<span class="highlight">${word}</span>` : word).join(' ');
+      document.getElementById('frenchGuess').value = '';
     }
   </script>
 </head>
 <body>
   <button onclick="newStory()">Jouer</button>
   <p id="story"></p>
-  <div id="frenchGuess" contentEditable="true" placeholder="Devinez en français"></div>
+  <input id="frenchGuess" placeholder="Devinez en français" />
   <button onclick="validateGuess()">Valider</button>
   <p id="result"></p>
   <p id="score">Score: 0</p>
