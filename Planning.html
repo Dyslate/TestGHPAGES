@@ -5,49 +5,10 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> TEST HP PAGES </title>
   <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emoji Story</title>
-  <style>
-    .highlight {
-      background-color: yellow;
-    }
-  </style>
-  <script>
-    const stories = [
-      { emoji: "🧙‍♂️➡️💍➡️👦➡️🚶‍♂️🌋➡️🧝‍♂️🧚🏽‍♂️🧔🏽👨‍🦳➡️👹➡️🕷️➡️💔➡️🦅➡️💍🌋➡️✌️", english: "lord of the rings", french: "le seigneur des anneaux" },
-      { emoji: "👸➡️👑🦹‍♀️➡️🌲➡️🏠➡️🪄7️⃣🕴️➡️🍎➡️💤➡️🤴➡️💋➡️🎉", english: "snow white and the seven dwarfs", french: "blanche neige et les sept nains" },
-      { emoji: "🕋➡️👤➡️📖➡️☪️➡️🙏➡️5️⃣➡️🕌➡️🌍➡️🌙➡️🎉", english: "history of islam", french: "histoire de l'islam" }
-    ];
-    let currentStory = null;
-
-    function newStory() {
-      const story = stories[Math.floor(Math.random() * stories.length)];
-      document.getElementById('story').innerText = story.emoji;
-      currentStory = story;
-    }
-
-    function checkGuess() {
-      const englishGuess = document.getElementById('englishGuess').value;
-      const frenchGuess = document.getElementById('frenchGuess').value;
-      const englishWords = currentStory.english.split(' ');
-      const frenchWords = currentStory.french.split(' ');
-
-      document.getElementById('englishGuess').value = englishWords.map(word => englishGuess.includes(word) ? `<span class="highlight">${word}</span>` : word).join(' ');
-      document.getElementById('frenchGuess').value = frenchWords.map(word => frenchGuess.includes(word) ? `<span class="highlight">${word}</span>` : word).join(' ');
-    }
-  </script>
-</head>
-
 
 </head>
 <body>
-  <button onclick="newStory()">Play</button>
-  <p id="story"></p>
-  <input id="englishGuess" placeholder="Guess in English" oninput="checkGuess()"/>
-  <input id="frenchGuess" placeholder="Guess in French" oninput="checkGuess()"/>
-  
-  
+
 <iframe src="https://calendar.google.com/calendar/embed?src=6pp0qsknv9gkhq24b5bep23l3aq9ha3p%40import.calendar.google.com&ctz=Europe%2FParis" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>  
 </body>
   
