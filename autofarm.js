@@ -115,12 +115,9 @@ class LeekWarsBot {
   }
 
   run() {
-    // Example usage
-    const login = this.login || '';
-    const password = this.password || '';
-    const bot = new LeekWarsBot(login, password);
-    bot.startProgram(login, password);
-  }
+  const bot = new LeekWarsBot(this.login, this.password);
+  bot.startProgram();
+}
 
 
   handleError(error_message) {
