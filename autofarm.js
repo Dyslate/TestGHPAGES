@@ -109,18 +109,13 @@ class LeekWarsBot {
     await this.runFights();
   }
 
-  run() {
-    // Example usage
-    const bot = new LeekWarsBot('', '');
-
-    bot.run();
-  }
+ run() {
+  const bot = new LeekWarsBot('', '');
+  bot.startProgram();
+}
 
   handleError(error_message) {
     console.error(`An error occurred: ${error_message}`);
   }
 }
 
-// Example usage
-const bot = new LeekWarsBot('', '');
-bot.run();
