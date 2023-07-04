@@ -103,16 +103,14 @@ class LeekWarsBot {
     this.stopFlag = true;
   }
 
-  async startProgram(login, password) {
-    this.stopFlag = false;
-    this.login = login;
-    this.password = password;
-    if (!this.login || !this.password) {
-      this.handleError('Please provide a login and password.');
-      return;
-    }
-    await this.runFights();
+  async startProgram() {
+  this.stopFlag = false;
+  if (!this.login || !this.password) {
+    this.handleError('Please provide a login and password.');
+    return;
   }
+  await this.runFights();
+}
 
   run() {
   const bot = new LeekWarsBot(this.login, this.password);
