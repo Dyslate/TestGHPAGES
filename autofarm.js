@@ -6,29 +6,34 @@ class LeekWarsBot {
   }
 
   async generateConfig() {
-    try {
-      const payload = {
-        login: this.login,
-        password: this.password,
-        keep_connected: 'true',
-      };
-      const response = await fetch('https://leekwars.com/api/farmer/login', {
-        method: 'POST',
-        body: new URLSearchParams(payload),
-      });
-      if (!response.ok) {
-        throw new Error(`[-] Unable to log in. Status: ${response.status}`);
-      }
-      const data = await response.json();
-      const token = response.headers.get('set-cookie').split(';')[0].split('=')[1];
-      const phpsessid = response.headers.get('set-cookie').split(';')[1].split('=')[1];
-      const farmer = data.farmer;
-      console.log('[+] Token and cookies retrieved.');
-      return { farmer, token, phpsessid };
-    } catch (e) {
-      this.handleError(`Connection error: ${e.message}`);
+  try {
+    const payload = {
+      login: this.login,
+      password: this.password,
+      keep_connected: 'true',
+    };
+    const response = await fetch('https://leekwars.com/api/farmer/login', {
+      method: 'POST',
+      body: new URLSearchParams(payload),
+    });
+    if (!response.ok) {
+      throw new Error(`[-] Unable to log in. Status: ${response.status}`);
     }
+    const data = await response.json();
+    const setCookieHeader = response.headers.get('set-cookie');
+    if (!setCookieHeader) {
+      throw new Error('[-] Cookie information not found in response headers');
+    }
+    const cookies = setCookieHeader.split(';');
+    const token = cookies[0].split('=')[1];
+    const phpsessid = cookies[1].split('=')[1];
+    const farmer = data.farmer;
+    console.log('[+] Token and cookies retrieved.');
+    return { farmer, token, phpsessid };
+  } catch (e) {
+    this.handleError(`Connection error: ${e.message}`);
   }
+}
 
   async fight(leekId, cookies) {
     try {
