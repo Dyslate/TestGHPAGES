@@ -18,12 +18,12 @@
 
   <script src="autofarm.js"></script>
 <script>
-  document.getElementById('startButton').addEventListener('click', async function() {
-    const login = document.getElementById('loginInput').value;
-    const password = document.getElementById('passwordInput').value;
-    const bot = new LeekWarsBot(login, password);
-    await bot.startProgram();
-  });
+document.getElementById('startButton').addEventListener('click', async function() {
+  const login = document.getElementById('loginInput').value;
+  const password = document.getElementById('passwordInput').value;
+  const bot = new LeekWarsBot(login, password);
+  await bot.startProgram();
+});
 </script>
 </body>
 </html>
