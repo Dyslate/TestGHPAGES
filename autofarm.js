@@ -113,11 +113,6 @@ class LeekWarsBot {
     // Example usage
     const bot = new LeekWarsBot('', '');
 
-    if (!bot.useGui) {
-      bot.login = 'Dyslate';
-      bot.password = '280696';
-    }
-
     bot.run();
   }
 
