@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 class LeekWarsBot {
   constructor(login, password) {
     this.login = login;
@@ -113,11 +111,7 @@ class LeekWarsBot {
 
   run() {
     // Example usage
-    const bot = new LeekWarsBot('', '', false);
-
-    if (process.argv.length > 2 && process.argv[2] === 'gui') {
-      bot.useGui = true;
-    }
+    const bot = new LeekWarsBot('', '');
 
     if (!bot.useGui) {
       bot.login = 'Dyslate';
@@ -133,5 +127,5 @@ class LeekWarsBot {
 }
 
 // Example usage
-const bot = new LeekWarsBot('', '', false);
+const bot = new LeekWarsBot('', '');
 bot.run();
