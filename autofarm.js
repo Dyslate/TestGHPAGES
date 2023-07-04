@@ -5,100 +5,125 @@ class LeekWarsBot {
     this.stopFlag = false;
   }
 
-async generateConfig() {
-  try {
-    const payload = {
-      login: this.login,
-      password: this.password,
-      keep_connected: 'true',
-    };
-    const response = await fetch('https://leekwars.com/api/farmer/login', {
-      method: 'POST',
-      body: new URLSearchParams(payload),
-    });
-    if (!response.ok) {
-      throw new Error(`[-] Unable to log in. Status: ${response.status}`);
-    }
-    const data = await response.json();
-
-    // Extract the cookie information from the response headers
-    const setCookieHeader = response.headers.get('set-cookie');
-    if (!setCookieHeader) {
-      throw new Error('[-] Cookie information not found in response headers');
-    }
-    const cookies = setCookieHeader.split(';');
-    const token = cookies[0].split('=')[1];
-    const phpsessid = cookies[1].split('=')[1];
-
-    const farmer = data.farmer;
-    console.log('[+] Token and cookies retrieved.');
-    return { farmer, token, phpsessid };
-  } catch (e) {
-    this.handleError(`Connection error: ${e.message}`);
-  }
-}
-
-  async fight(leekId, cookies) {
+  async generateConfig() {
     try {
-      const gardenResponse = await fetch('https://leekwars.com/api/garden/get', { headers: { Cookie: cookies } });
-      if (!gardenResponse.ok) {
-        throw new Error(`Failed to fetch garden data. Status: ${gardenResponse.status}`);
-      }
-      const garden = await gardenResponse.json();
-      if (garden.garden.fights === 0) {
-        this.handleError('You have no available fights with this leek!');
-        return;
-      }
-      console.log(`You have ${garden.garden.max_fights} available fights!`);
+      const response = await fetch('https://leekwars.com/api/farmer/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          login: this.login,
+          password: this.password,
+          keep_connected: true
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
-      while (garden.garden.fights > 0 && !this.stopFlag) {
-        const opponentsResponse = await fetch(`https://leekwars.com/api/garden/get-leek-opponents/${leekId}`, {
-          headers: { Cookie: cookies },
-        });
-        if (!opponentsResponse.ok) {
-          throw new Error(`Failed to fetch opponents. Status: ${opponentsResponse.status}`);
-        }
-        const opponents = await opponentsResponse.json();
-        if (!opponents.opponents.length) {
-          break;
-        }
-        const opponent = opponents.opponents[0];
+      if (response.ok) {
+        const data = await response.json();
+        const token = response.headers.get('Set-Cookie').split(';')[0];
+        const farmer = data.farmer;
 
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        console.log(`Fighting against ${opponent.name} leek! (id: ${opponent.id})`);
-        const fightData = { leek_id: leekId, target_id: opponent.id };
-        const fightResponse = await fetch('https://leekwars.com/api/garden/start-solo-fight', {
-          method: 'POST',
-          body: new URLSearchParams(fightData),
-          headers: { Cookie: cookies },
-        });
-        if (!fightResponse.ok) {
-          throw new Error(`Failed to start fight. Status: ${fightResponse.status}`);
+        if (!token) {
+          throw new Error('Unable to log in.');
         }
-        const fightResult = await fightResponse.json();
-        console.log(JSON.stringify(fightResult));
-        garden.garden.fights--;
+        console.log('[+] Token retrieved.');
+        return { farmer, token };
+      } else {
+        throw new Error('Connection error: ' + response.statusText);
       }
-    } catch (e) {
-      this.handleError(`Request error: ${e.message}`);
+    } catch (error) {
+      throw new Error('Connection error: ' + error.message);
+    }
+  }
+
+  async fight(leekId, token) {
+    try {
+      const gardenResponse = await fetch('https://leekwars.com/api/garden/get', {
+        headers: {
+          Cookie: token
+        }
+      });
+
+      if (gardenResponse.ok) {
+        const gardenData = await gardenResponse.json();
+        const garden = gardenData.garden;
+
+        if (garden.fights === 0) {
+          throw new Error('You have no available fights with this leek!');
+        }
+
+        console.log('You have ' + garden.max_fights + ' available fights!');
+
+        while (garden.fights > 0 && !this.stopFlag) {
+          const opponentsResponse = await fetch('https://leekwars.com/api/garden/get-leek-opponents/' + leekId, {
+            headers: {
+              Cookie: token
+            }
+          });
+
+          if (opponentsResponse.ok) {
+            const opponentsData = await opponentsResponse.json();
+            const opponents = opponentsData.opponents;
+
+            if (!opponents) {
+              break;
+            }
+
+            const opponent = opponents[0];
+
+            await new Promise(resolve => setTimeout(resolve, 500)); // Delay between fights
+
+            console.log('Fighting against ' + opponent.name + ' leek! (id: ' + opponent.id + ')');
+
+            const fightData = new URLSearchParams();
+            fightData.append('leek_id', leekId);
+            fightData.append('target_id', opponent.id);
+
+            const fightResponse = await fetch('https://leekwars.com/api/garden/start-solo-fight', {
+              method: 'POST',
+              body: fightData,
+              headers: {
+                Cookie: token
+              }
+            });
+
+            if (fightResponse.ok) {
+              const fightData = await fightResponse.json();
+              console.log(JSON.stringify(fightData));
+              garden.fights--;
+            } else {
+              throw new Error('Request error: ' + fightResponse.statusText);
+            }
+          } else {
+            throw new Error('Request error: ' + opponentsResponse.statusText);
+          }
+        }
+      } else {
+        throw new Error('Request error: ' + gardenResponse.statusText);
+      }
+    } catch (error) {
+      throw new Error('Request error: ' + error.message);
     }
   }
 
   async runFights() {
     try {
-      const { farmer, token, phpsessid } = await this.generateConfig();
-      console.log(`Hello ${farmer.name}!`);
-      const cookies = `token=${token}; PHPSESSID=${phpsessid}`;
+      const { farmer, token } = await this.generateConfig();
+      console.log('Hello ' + farmer.name + '!');
+      const leeks = Object.entries(farmer.leeks);
 
-      for (const leekId in farmer.leeks) {
-        console.log(`Processing leek ${farmer.leeks[leekId].name}\n`);
-        await this.fight(leekId, cookies);
+      for (const [leekId, leekInfo] of leeks) {
+        console.log('Processing leek ' + leekInfo.name);
+
+        await this.fight(leekId, token);
+
         if (this.stopFlag) {
           break;
         }
       }
-    } catch (e) {
-      this.handleError(e.message);
+    } catch (error) {
+      console.log('An error occurred: ' + error.message);
     }
   }
 
@@ -107,22 +132,21 @@ async generateConfig() {
   }
 
   async startProgram() {
-  this.stopFlag = false;
-  if (!this.login || !this.password) {
-    this.handleError('Please provide a login and password.');
-    return;
-  }
-  await this.runFights();
-}
+    this.stopFlag = false;
 
-  run() {
-  const bot = new LeekWarsBot(this.login, this.password);
-  bot.startProgram();
-}
+    const startButton = document.getElementById('startButton');
+    startButton.disabled = true;
 
+    const login = document.getElementById('loginInput').value;
+    const password = document.getElementById('passwordInput').value;
+    this.login = login;
+    this.password = password;
 
-  handleError(error_message) {
-    console.error(`An error occurred: ${error_message}`);
+    await this.runFights();
+
+    startButton.disabled = false;
   }
 }
 
+// Example usage
+const bot = new LeekWarsBot('', '');
