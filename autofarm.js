@@ -109,10 +109,14 @@ class LeekWarsBot {
     await this.runFights();
   }
 
- run() {
-  const bot = new LeekWarsBot('', '');
-  bot.startProgram();
-}
+  run() {
+    // Example usage
+    const login = this.login || '';
+    const password = this.password || '';
+    const bot = new LeekWarsBot(login, password);
+    bot.startProgram(login, password);
+  }
+
 
   handleError(error_message) {
     console.error(`An error occurred: ${error_message}`);
