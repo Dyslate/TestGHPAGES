@@ -5,7 +5,7 @@ class LeekWarsBot {
     this.stopFlag = false;
   }
 
-  async generateConfig() {
+ async generateConfig() {
   try {
     const payload = {
       login: this.login,
@@ -20,7 +20,11 @@ class LeekWarsBot {
       throw new Error(`[-] Unable to log in. Status: ${response.status}`);
     }
     const data = await response.json();
+    console.log('Response:', data); // Log the response for debugging
+
     const setCookieHeader = response.headers.get('set-cookie');
+    console.log('Set-Cookie Header:', setCookieHeader); // Log the cookie header for debugging
+
     if (!setCookieHeader) {
       throw new Error('[-] Cookie information not found in response headers');
     }
