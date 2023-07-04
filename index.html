@@ -1,1 +1,29 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LeekWars Bot</title>
+</head>
+<body>
+  <h1>LeekWars Bot</h1>
+
+  <label for="loginInput">Login:</label>
+  <input type="text" id="loginInput" placeholder="Enter your Leek Wars login">
+
+  <label for="passwordInput">Password:</label>
+  <input type="password" id="passwordInput" placeholder="Enter your Leek Wars password">
+
+  <button id="startButton">Start Bot</button>
+
+  <script src="leekwarsbot.js"></script>
+  <script>
+    document.getElementById('startButton').addEventListener('click', function() {
+      const login = document.getElementById('loginInput').value;
+      const password = document.getElementById('passwordInput').value;
+      const bot = new LeekWarsBot(login, password, false);
+      bot.run();
+    });
+  </script>
+</body>
+</html>
