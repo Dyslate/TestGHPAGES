@@ -8,13 +8,18 @@
         .question {
             margin-bottom: 20px;
         }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
     </style>
 </head>
 <body>
 
 <form id="quizForm"></form>
 <button onclick="startQuiz()">Commencer le quiz</button>
-<button onclick="checkAnswers()" style="display:none;">Vérifier les réponses</button>
 
 <script>
     const questions = [
@@ -89,10 +94,10 @@
     ];
 
     function startQuiz() {
-        const shuffledQuestions = questions.sort(() => 0.5 - Math.random());
         const quizForm = document.getElementById('quizForm');
+        quizForm.innerHTML = ''; // Reset the form
 
-        shuffledQuestions.forEach((q, index) => {
+        questions.forEach((q, index) => {
             const questionDiv = document.createElement('div');
             questionDiv.className = 'question';
 
@@ -103,11 +108,13 @@
             inputTrue.type = 'radio';
             inputTrue.name = 'q' + index;
             inputTrue.value = 'vrai';
+            inputTrue.onclick = () => checkAnswer(q, 'vrai', questionDiv);
 
             const inputFalse = document.createElement('input');
             inputFalse.type = 'radio';
             inputFalse.name = 'q' + index;
             inputFalse.value = 'faux';
+            inputFalse.onclick = () => checkAnswer(q, 'faux', questionDiv);
 
             questionDiv.appendChild(label);
             questionDiv.appendChild(document.createElement('br'));
@@ -120,19 +127,16 @@
         });
 
         document.querySelector('button[onclick="startQuiz()"]').style.display = 'none';
-        document.querySelector('button[onclick="checkAnswers()"]').style.display = 'block';
     }
 
-    function checkAnswers() {
-        let correctCount = 0;
-        questions.forEach((q, index) => {
-            const selected = document.querySelector(`input[name="q${index}"]:checked`);
-            if (selected && selected.value === q.answer) {
-                correctCount++;
-            }
-        });
-
-        alert(`Vous avez ${correctCount} réponses correctes sur ${questions.length}!`);
+    function checkAnswer(question, selectedAnswer, questionDiv) {
+        if (selectedAnswer === question.answer) {
+            questionDiv.classList.add('correct');
+            questionDiv.classList.remove('incorrect');
+        } else {
+            questionDiv.classList.add('incorrect');
+            questionDiv.classList.remove('correct');
+        }
     }
 </script>
 
