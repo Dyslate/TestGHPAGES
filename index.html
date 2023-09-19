@@ -1,29 +1,140 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>LeekWars Bot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur la sécurité informatique</title>
+    <style>
+        .question {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h1>LeekWars Bot</h1>
 
-  <label for="loginInput">Login:</label>
-  <input type="text" id="loginInput" placeholder="Enter your Leek Wars login">
+<form id="quizForm"></form>
+<button onclick="startQuiz()">Commencer le quiz</button>
+<button onclick="checkAnswers()" style="display:none;">Vérifier les réponses</button>
 
-  <label for="passwordInput">Password:</label>
-  <input type="password" id="passwordInput" placeholder="Enter your Leek Wars password">
-
-  <button id="startButton">Start Bot</button>
-
-  <script src="autofarm.js"></script>
 <script>
-document.getElementById('startButton').addEventListener('click', async function() {
-  const login = document.getElementById('loginInput').value;
-  const password = document.getElementById('passwordInput').value;
-  const bot = new LeekWarsBot(login, password);
-  await bot.startProgram();
-});
+    const questions = [
+        { text: "Dans le cas de l'utilisation de l'algorithme d'échange des clés de Diffie-Hellman, deux entités souhaitant s'échanger un secret n'ont qu'à chiffrer avec la clé publique du destinataire", answer: 'faux' },
+        { text: "L'algorithme de chiffrement asymétrique RSA est libre d'utilisation.", answer: 'vrai' },
+        { text: "Le chiffrement asymétrique ainsi que l'algorithme d'échange des clés de Diffie-Hellman sont basés sur la factorisation de grands nombres premiers.", answer: 'vrai' },
+        { text: "Dans le chiffrement AES, on chiffre par bloc", answer: 'vrai' },
+        { text: "en AES, la taille d'un bloc est toujours de 256 bits.", answer: 'faux' },
+        { text: "La longueur de la clé détermine le nombre de rounds.", answer: 'vrai' },
+        { text: "Une PKI sert, dans son ensemble à produire des certificats", answer: 'vrai' },
+        { text: "En retour d'une demande de création de certificat, l'utilisateur reçoit une CSR", answer: 'faux' },
+        { text: "Pour provoquer la révocation d'un certificat, je fournis la clé privée du certificat à la PKI", answer: 'faux' },
+        { text: "Pour éviter que la CRL soit perturbée/fausse, je la signe avec la clé privée du certificat.", answer: 'faux' },
+        { text: "La norme pour les certificats est le X509", answer: 'vrai' },
+        { text: "Le protocole d'interrogation de la CRL s'appelle OCSF", answer: 'faux' },
+        { text: "Un séquestre s'appelle aussi un HSM.", answer: 'vrai' },
+        { text: " Il y a trois classes d'AC dont la plus robuste est celle faite par les entreprises.", answer: 'faix' },
+        { text: "La durée de vie d'un certificat varie entre un et six mois", answer: 'faux' },
+        { text: "La LPM ne touche que les secteurs de la défense.", answer: 'faux' },
+        { text: "On est encore dans une phase d'homologation de la LPM pour les entreprises.", answer: 'vrai' },
+        { text: "La LPM ne touche que le secteur de la finance", answer: 'faux' },
+        { text: "Il y a à peu près 1500 PIV.", answer: 'vrai' },
+        { text: "Il y a vingt règles dans la LPM.", answer: 'vrai' },
+        { text: "Quand je dois être conforme à la LPM, je m'appelle un OSE", answer: 'faux' },
+        { text: "La loi Informatique et Libertés date de 1988", answer: 'faux' },
+        { text: "La loi Informatique et Libertés a, entre autres, servi à la création de la CNIL", answer: 'vrai' },
+        { text: "La CNIL peut infliger des amendes.", answer: 'vrai' },
+        { text: "Que ce soit au niveau de la loi Informatique et Libertés ou du RGPD, il est interdit de collecter certains types de données.", answer: 'faux' },
+        { text: "DPO est un rôle joué par quelqu'un dans une entreprise qui veille à la bonne mise en œuvre de la loi Informatique et Libertés. ", answer: 'faux' },
+        { text: "Les pays européens ont eu un délai de trois ans pour transposer le RGPD en droits nationaux.", answer: 'faux' },
+        { text: "La loi Godfrain ne punit que le maintien le maintien frauduleux sur un STAD. ", answer: 'faux' },
+        { text: "La loi Godfrain figure dans le code civil.", answer: 'faux' },
+        { text: "La LSQ est l'équivalent du Patriot Act.", answer: 'vrai' },
+        { text: "La classification TIER vise à évaluer/définir le niveau d'intégrité d'un datacenter.", answer: 'faux' },
+        { text: "La classification TIER va de 1 à 4.", answer: 'vrai' },
+        { text: "Dans une classification TIER, tout est au moins doublé (climatisation, électricité, réseau, etc.).", answer: 'vrai' },
+        { text: "ne vulnérabilité est quelque chose de potentiel et un risque rend possible la vulnérabilité.", answer: 'faux' },
+        { text: "Le seuil correspond au niveau de criticité en dessous duquel nous allons tolérer les risques identifiés.", answer: 'vrai' },
+        { text: "Un risque brut correspond à un risque avant l'application d'une mesure.", answer: 'vrai' },
+        { text: "Le secret de Shamir consiste à découper un secret en n parmi m avec n > m", answer: 'faux' },
+        { text: "Le SOAR sert à enrichir les données issues du SIEM", answer: 'vrai' },
+        { text: "La CTI propose des IOC.", answer: 'vrai' },
+        { text: "La norme ISO 27004 correspond à une norme d'analyse de risques", answer: 'faux' },
+        { text: "La classification TIER provient de l'Uptime Institute.", answer: 'vrai' },
+        { text: " La classification TIER va jusqu'à 5. ", answer: 'faux' },
+        { text: "Un niveau de 4 correspond à un niveau de disponibilité de 99.99%. ", answer: 'vrai' },
+        { text: "IPS est en dérivation", answer: 'faux' },
+        { text: "IPS est en coupure", answer: 'vrai' },
+        { text: "Antivirus est basé sur des signatures virales", answer: 'vrai' },
+        { text: "ISO27004 est la methode d’analyse des risque", answer: 'faux' },
+        { text: "ISO27005 est la methode d’analyse des risque", answer: 'vrai' },
+        { text: "Est-ce que les signatures sont toujours identiques", answer: 'faux' },
+        { text: "DICT signifie les exigences de securité dans lequele I veut dire informatique", answer: 'faux' },
+        { text: "DICT signifie les exigences de securité dans lequele I veut dire intégrité", answer: 'vrai' },
+        { text: "un certificat a une durée de vie de 2 semaine", answer: 'faux' },
+        { text: "un certificat a une durée de vie de 2 a 3 ans", answer: 'vrai' },
+        { text: "AES libre d’utilisation", answer: 'vrai' },
+        { text: "PKI sert à produire des certificats(dans son ensemble)", answer: 'vrai' },
+        { text: "Expiration et revocation sont la meme chose ", answer: 'faux' },
+        { text: "3 classes d’AC dont la plus grosse est celle des entreprises", answer: 'faux' },
+        { text: "Protocole pour interroger le CRL(certificate revocation list) s’appelle OCRF ?", answer: 'faux' },
+        { text: "Protocole pour interroger le CRL(certificate revocation list) s’appelle OCSP ?", answer: 'vrai' },
+        { text: "Aes est supérieur au des ?", answer: 'vrai' },
+        { text: "AES = Appel d’offre mondiale américain", answer: 'vrai' },
+        { text: "RSA = libre d’utilisation", answer: 'vrai' },
+        { text: "Longue de la clé determine le nombre de round (rsa)", answer: 'vrai' },
+        { text: "Loi informatique et liberté = 1990 ?", answer: 'faux' },
+        { text: "Loi informatique et liberté = 1978 ?", answer: 'vrai' },
+        { text: "Commission national et liberté infligé amende", answer: 'vrai' },
+        { text: "RGPD -> conduire la CNIL pour infliger des amendes ?", answer: 'vrai' },
+        { text: "La loi Godfrain punit le maintien sur un STAD?", answer: 'faux' },
+    ];
+
+    function startQuiz() {
+        const shuffledQuestions = questions.sort(() => 0.5 - Math.random());
+        const quizForm = document.getElementById('quizForm');
+
+        shuffledQuestions.forEach((q, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+
+            const label = document.createElement('label');
+            label.textContent = (index + 1) + '. ' + q.text;
+
+            const inputTrue = document.createElement('input');
+            inputTrue.type = 'radio';
+            inputTrue.name = 'q' + index;
+            inputTrue.value = 'vrai';
+
+            const inputFalse = document.createElement('input');
+            inputFalse.type = 'radio';
+            inputFalse.name = 'q' + index;
+            inputFalse.value = 'faux';
+
+            questionDiv.appendChild(label);
+            questionDiv.appendChild(document.createElement('br'));
+            questionDiv.appendChild(inputTrue);
+            questionDiv.appendChild(document.createTextNode('Vrai'));
+            questionDiv.appendChild(inputFalse);
+            questionDiv.appendChild(document.createTextNode('Faux'));
+
+            quizForm.appendChild(questionDiv);
+        });
+
+        document.querySelector('button[onclick="startQuiz()"]').style.display = 'none';
+        document.querySelector('button[onclick="checkAnswers()"]').style.display = 'block';
+    }
+
+    function checkAnswers() {
+        let correctCount = 0;
+        questions.forEach((q, index) => {
+            const selected = document.querySelector(`input[name="q${index}"]:checked`);
+            if (selected && selected.value === q.answer) {
+                correctCount++;
+            }
+        });
+
+        alert(`Vous avez ${correctCount} réponses correctes sur ${questions.length}!`);
+    }
 </script>
+
 </body>
 </html>
