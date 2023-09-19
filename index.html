@@ -133,11 +133,14 @@
         { text: "Diffie Hellman est un algo symétrique", answer: 'faux' },
     ];
 
-    function startQuiz() {
+     function startQuiz() {
         const quizForm = document.getElementById('quizForm');
         quizForm.innerHTML = ''; // Reset the form
 
-        questions.forEach((q, index) => {
+        // Mélanger les questions
+        const shuffledQuestions = questions.sort(() => 0.5 - Math.random());
+
+        shuffledQuestions.forEach((q, index) => {
             const questionDiv = document.createElement('div');
             questionDiv.className = 'question';
 
