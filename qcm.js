@@ -11,35 +11,33 @@ fetch('ISO_IEC_27001_QCM_Relevant_Questions.json')
     })
     .catch(error => console.error("Erreur lors du chargement du QCM:", error));
 
-// Affiche une question aléatoire
 function loadNextQuestion() {
     if (questions.length === 0) {
         document.getElementById('question').textContent = "QCM terminé!";
         document.getElementById('options').innerHTML = '';
-        document.getElementById('score').textContent = `Votre score : ${score}`;
+        document.getElementById('score').innerHTML = `<strong>Votre score : ${score}</strong>`;
         return;
     }
 
-    // Sélection aléatoire d'une question
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
     const currentQuestion = questions[currentQuestionIndex];
 
-    // Affiche la question et les options
     document.getElementById('question').textContent = currentQuestion.question;
     const optionsList = document.getElementById('options');
     optionsList.innerHTML = '';
     currentQuestion.options.forEach((option, index) => {
         const li = document.createElement('li');
+        li.className = 'list-group-item';
         li.textContent = option;
         li.addEventListener('click', () => checkAnswer(option, currentQuestion.answer));
         optionsList.appendChild(li);
     });
 }
 
-// Vérifie la réponse et met à jour le score
 function checkAnswer(selectedOption, correctAnswer) {
     if (selectedOption === correctAnswer) {
         score++;
     }
+    questions.splice(currentQuestionIndex, 1);
     loadNextQuestion();
 }
