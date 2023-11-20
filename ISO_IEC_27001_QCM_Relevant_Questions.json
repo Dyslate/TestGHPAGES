@@ -1,0 +1,282 @@
+[
+    {
+        "question": "Quel est l'objectif principal de la norme ISO/IEC 27001 ?",
+        "options": [
+            "Am\u00e9liorer la gestion des ressources humaines",
+            "Am\u00e9liorer la s\u00e9curit\u00e9 de l'information",
+            "Standardiser les processus de production",
+            "Optimiser la gestion financi\u00e8re"
+        ],
+        "answer": "Am\u00e9liorer la s\u00e9curit\u00e9 de l'information"
+    },
+    {
+        "question": "Que signifie SMSI dans le contexte de la norme ISO/IEC 27001 ?",
+        "options": [
+            "Syst\u00e8me de Management de la S\u00e9curit\u00e9 de l'Information",
+            "Syst\u00e8me de Mesure des Standards Internationaux",
+            "Syst\u00e8me de Management des Services Informatiques",
+            "Syst\u00e8me de Mod\u00e9lisation des Sc\u00e9narios d'Incidents"
+        ],
+        "answer": "Syst\u00e8me de Management de la S\u00e9curit\u00e9 de l'Information"
+    },
+    {
+        "question": "Quel est un \u00e9l\u00e9ment cl\u00e9 du leadership dans ISO/IEC 27001 ?",
+        "options": [
+            "Engagement et politique de s\u00e9curit\u00e9",
+            "Analyse financi\u00e8re d\u00e9taill\u00e9e",
+            "D\u00e9veloppement de nouveaux produits",
+            "Expansion sur de nouveaux march\u00e9s"
+        ],
+        "answer": "Engagement et politique de s\u00e9curit\u00e9"
+    },
+    {
+        "question": "Qu'est-ce qu'une \u00e9valuation de la performance dans ISO/IEC 27001 implique-t-elle ?",
+        "options": [
+            "\u00c9valuation des b\u00e9n\u00e9fices financiers",
+            "Analyse de la satisfaction client",
+            "Indicateurs, audit interne et revue de direction",
+            "\u00c9valuation des comp\u00e9tences des employ\u00e9s"
+        ],
+        "answer": "Indicateurs, audit interne et revue de direction"
+    },
+    {
+        "question": "Dans ISO/IEC 27001, qu'implique la gestion des risques ?",
+        "options": [
+            "\u00c9valuation et traitement des risques",
+            "Gestion des risques financiers uniquement",
+            "Surveillance des concurrents",
+            "Gestion des ressources humaines"
+        ],
+        "answer": "\u00c9valuation et traitement des risques"
+    },
+    {
+        "question": "Quel est le r\u00f4le de l'\u00e9valuation des risques dans ISO/IEC 27001 ?",
+        "options": [
+            "\u00c9valuer uniquement les risques financiers",
+            "Identifier et \u00e9valuer les risques li\u00e9s \u00e0 la s\u00e9curit\u00e9 de l'information",
+            "Analyser les risques li\u00e9s aux ressources humaines",
+            "Se concentrer sur les risques environnementaux"
+        ],
+        "answer": "Identifier et \u00e9valuer les risques li\u00e9s \u00e0 la s\u00e9curit\u00e9 de l'information"
+    },
+    {
+        "question": "Quelle est l'importance de la revue de direction dans un SMSI selon ISO/IEC 27001 ?",
+        "options": [
+            "Examiner la performance financi\u00e8re de l'organisation",
+            "\u00c9valuer la conformit\u00e9 l\u00e9gale et r\u00e9glementaire",
+            "Assurer le suivi et l'\u00e9valuation de la performance du SMSI",
+            "D\u00e9terminer les objectifs de marketing"
+        ],
+        "answer": "Assurer le suivi et l'\u00e9valuation de la performance du SMSI"
+    },
+    {
+        "question": "Quel est le but de la gestion des incidents dans ISO/IEC 27001 ?",
+        "options": [
+            "G\u00e9rer uniquement les incidents li\u00e9s aux TI",
+            "R\u00e9pondre et g\u00e9rer tous les types d'incidents de s\u00e9curit\u00e9 de l'information",
+            "Focaliser sur les incidents li\u00e9s aux ressources humaines",
+            "S'occuper des incidents li\u00e9s aux clients et fournisseurs"
+        ],
+        "answer": "R\u00e9pondre et g\u00e9rer tous les types d'incidents de s\u00e9curit\u00e9 de l'information"
+    },
+    {
+        "question": "Quel est l'impact de la certification ISO/IEC 27001 sur les parties prenantes d'une organisation ?",
+        "options": [
+            "Augmente uniquement la satisfaction des employ\u00e9s",
+            "Am\u00e9liore la confiance des clients, fournisseurs et autres parties prenantes",
+            "N'affecte que les relations avec les fournisseurs",
+            "Concerne uniquement les aspects financiers de l'entreprise"
+        ],
+        "answer": "Am\u00e9liore la confiance des clients, fournisseurs et autres parties prenantes"
+    },
+    {
+        "question": "Quel \u00e9l\u00e9ment n'est pas directement li\u00e9 \u00e0 la gestion des risques selon ISO/IEC 27001 ?",
+        "options": [
+            "Identification des risques",
+            "Analyse des risques",
+            "Traitement des risques",
+            "Planification des ressources humaines"
+        ],
+        "answer": "Planification des ressources humaines"
+    },
+    {
+        "question": "Qu'est-ce que le 'SMSI' en mati\u00e8re de s\u00e9curit\u00e9 de l'information ?",
+        "options": [
+            "Syst\u00e8me de Mesure des Standards Internationaux",
+            "Syst\u00e8me de Management de la S\u00e9curit\u00e9 de l'Information",
+            "Syst\u00e8me de Mod\u00e9lisation des Sc\u00e9narios d'Incidents",
+            "Syst\u00e8me de Management des Services Informatiques"
+        ],
+        "answer": "Syst\u00e8me de Management de la S\u00e9curit\u00e9 de l'Information"
+    },
+    {
+        "question": "Quelle est l'importance de la 'gestion des incidents' dans le cadre de l'ISO/IEC 27001 ?",
+        "options": [
+            "G\u00e9rer uniquement les incidents li\u00e9s aux TI",
+            "R\u00e9pondre et g\u00e9rer tous les types d'incidents de s\u00e9curit\u00e9 de l'information",
+            "Focaliser sur les incidents li\u00e9s aux ressources humaines",
+            "S'occuper des incidents li\u00e9s aux clients et fournisseurs"
+        ],
+        "answer": "R\u00e9pondre et g\u00e9rer tous les types d'incidents de s\u00e9curit\u00e9 de l'information"
+    },
+    {
+        "question": "Dans le cadre de l'ISO/IEC 27001, quelle est la premi\u00e8re \u00e9tape de la gestion des risques ?",
+        "options": [
+            "L'identification des risques",
+            "Le traitement des risques",
+            "L'analyse des risques",
+            "La communication des risques"
+        ],
+        "answer": "L'identification des risques"
+    },
+    {
+        "question": "Quel est le but principal de la 'politique de s\u00e9curit\u00e9 de l'information' selon l'ISO/IEC 27001 ?",
+        "options": [
+            "D\u00e9finir les objectifs commerciaux de l'entreprise",
+            "\u00c9tablir les directives pour la protection de l'information",
+            "Organiser les ressources humaines",
+            "G\u00e9rer les relations avec les clients"
+        ],
+        "answer": "\u00c9tablir les directives pour la protection de l'information"
+    },
+    {
+        "question": "Quelle est l'importance des 'objectifs de s\u00e9curit\u00e9 de l'information' dans ISO/IEC 27001 ?",
+        "options": [
+            "Ils d\u00e9finissent les plans marketing",
+            "Ils \u00e9tablissent les objectifs financiers",
+            "Ils guident la mise en \u0153uvre et l'am\u00e9lioration du SMSI",
+            "Ils se concentrent sur le d\u00e9veloppement de produits"
+        ],
+        "answer": "Ils guident la mise en \u0153uvre et l'am\u00e9lioration du SMSI"
+    },
+    {
+        "question": "En mati\u00e8re de conformit\u00e9 ISO/IEC 27001, qu'est-ce qu'une 'revue de direction' implique ?",
+        "options": [
+            "Examen des performances commerciales globales",
+            "\u00c9valuation de la strat\u00e9gie de marketing",
+            "Analyse p\u00e9riodique de la performance et de l'efficacit\u00e9 du SMSI",
+            "Planification des ressources humaines"
+        ],
+        "answer": "Analyse p\u00e9riodique de la performance et de l'efficacit\u00e9 du SMSI"
+    },
+    {
+        "question": "Quel est le r\u00f4le du 'contexte de l'organisation' dans la mise en \u0153uvre d'un SMSI selon ISO/IEC 27001 ?",
+        "options": [
+            "D\u00e9finir les objectifs financiers de l'organisation",
+            "Identifier les attentes des parties prenantes et les exigences l\u00e9gales",
+            "Planifier les ressources humaines",
+            "D\u00e9velopper des strat\u00e9gies marketing"
+        ],
+        "answer": "Identifier les attentes des parties prenantes et les exigences l\u00e9gales"
+    },
+    {
+        "question": "Dans le cadre de l'ISO/IEC 27001, quelle est l'importance de la 'gestion documentaire' ?",
+        "options": [
+            "Fournir une base de donn\u00e9es pour le marketing",
+            "Assurer la tra\u00e7abilit\u00e9 et la disponibilit\u00e9 des informations de s\u00e9curit\u00e9",
+            "G\u00e9rer les finances de l'organisation",
+            "Organiser les activit\u00e9s de vente"
+        ],
+        "answer": "Assurer la tra\u00e7abilit\u00e9 et la disponibilit\u00e9 des informations de s\u00e9curit\u00e9"
+    },
+    {
+        "question": "Quel est l'objectif de l'\u00e9valuation de la performance dans le cadre de l'ISO/IEC 27001 ?",
+        "options": [
+            "Mesurer l'efficacit\u00e9 des campagnes marketing",
+            "\u00c9valuer la performance financi\u00e8re de l'organisation",
+            "D\u00e9terminer l'efficacit\u00e9 et l'efficience du SMSI",
+            "Analyser les performances des employ\u00e9s"
+        ],
+        "answer": "D\u00e9terminer l'efficacit\u00e9 et l'efficience du SMSI"
+    },
+    {
+        "question": "Dans ISO/IEC 27001, quel est le r\u00f4le du monitoring et de la mesure dans la gestion du SMSI ?",
+        "options": [
+            "Surveiller les tendances du march\u00e9",
+            "Mesurer la satisfaction des clients",
+            "Contr\u00f4ler et mesurer les aspects critiques de la s\u00e9curit\u00e9 de l'information",
+            "\u00c9valuer les performances des fournisseurs"
+        ],
+        "answer": "Contr\u00f4ler et mesurer les aspects critiques de la s\u00e9curit\u00e9 de l'information"
+    },
+    {
+        "question": "Quel est l'objectif de l'am\u00e9lioration continue dans le cadre de l'ISO/IEC 27001 ?",
+        "options": [
+            "Augmenter les b\u00e9n\u00e9fices financiers",
+            "Am\u00e9liorer constamment l'efficacit\u00e9 du SMSI",
+            "R\u00e9duire les co\u00fbts op\u00e9rationnels",
+            "Augmenter la productivit\u00e9 des employ\u00e9s"
+        ],
+        "answer": "Am\u00e9liorer constamment l'efficacit\u00e9 du SMSI"
+    },
+    {
+        "question": "Comment l'ISO/IEC 27001 recommande-t-elle de g\u00e9rer les non-conformit\u00e9s et les actions correctives ?",
+        "options": [
+            "Ignorer les non-conformit\u00e9s mineures",
+            "R\u00e9agir aux non-conformit\u00e9s et prendre des mesures pour les corriger",
+            "Se concentrer uniquement sur les non-conformit\u00e9s majeures",
+            "D\u00e9l\u00e9guer la gestion des non-conformit\u00e9s aux parties externes"
+        ],
+        "answer": "R\u00e9agir aux non-conformit\u00e9s et prendre des mesures pour les corriger"
+    },
+    {
+        "question": "Quel est le but de la 'D\u00e9claration d'Applicabilit\u00e9' (SoA) dans ISO/IEC 27001 ?",
+        "options": [
+            "D\u00e9clarer les objectifs financiers de l'organisation",
+            "Lister et justifier les contr\u00f4les de s\u00e9curit\u00e9 s\u00e9lectionn\u00e9s",
+            "D\u00e9finir la strat\u00e9gie marketing de l'entreprise",
+            "Documenter les plans de d\u00e9veloppement de produits"
+        ],
+        "answer": "Lister et justifier les contr\u00f4les de s\u00e9curit\u00e9 s\u00e9lectionn\u00e9s"
+    },
+    {
+        "question": "Dans le cadre de l'ISO/IEC 27001, quelle est l'importance de la 's\u00e9lection des contr\u00f4les de s\u00e9curit\u00e9' ?",
+        "options": [
+            "Choisir les meilleures pratiques de gestion",
+            "Identifier les contr\u00f4les n\u00e9cessaires pour att\u00e9nuer les risques de s\u00e9curit\u00e9",
+            "S\u00e9lectionner des logiciels pour les op\u00e9rations commerciales",
+            "\u00c9laborer des politiques de ressources humaines"
+        ],
+        "answer": "Identifier les contr\u00f4les n\u00e9cessaires pour att\u00e9nuer les risques de s\u00e9curit\u00e9"
+    },
+    {
+        "question": "Comment l'ISO/IEC 27001 aborde-t-elle la gestion des ressources pour le SMSI ?",
+        "options": [
+            "En se concentrant sur les ressources financi\u00e8res uniquement",
+            "En assurant la disponibilit\u00e9 des ressources n\u00e9cessaires pour le SMSI",
+            "En priorisant les ressources marketing",
+            "En se focalisant sur les ressources de d\u00e9veloppement de produits"
+        ],
+        "answer": "En assurant la disponibilit\u00e9 des ressources n\u00e9cessaires pour le SMSI"
+    },
+    {
+        "question": "Quelle est l'importance de l'analyse des risques dans l'ISO/IEC 27001 ?",
+        "options": [
+            "Analyser les risques uniquement li\u00e9s aux finances",
+            "Identifier et \u00e9valuer les risques pour la s\u00e9curit\u00e9 de l'information",
+            "Se concentrer sur les risques li\u00e9s au personnel",
+            "\u00c9valuer les risques de march\u00e9"
+        ],
+        "answer": "Identifier et \u00e9valuer les risques pour la s\u00e9curit\u00e9 de l'information"
+    },
+    {
+        "question": "Quel est le r\u00f4le de la 'communication interne et externe' dans l'ISO/IEC 27001 ?",
+        "options": [
+            "Communiquer uniquement avec les clients",
+            "Diffuser des informations relatives \u00e0 la s\u00e9curit\u00e9 de l'information",
+            "Focaliser sur la publicit\u00e9 et le marketing",
+            "Transmettre des informations financi\u00e8res"
+        ],
+        "answer": "Diffuser des informations relatives \u00e0 la s\u00e9curit\u00e9 de l'information"
+    },
+    {
+        "question": "Comment l'ISO/IEC 27001 traite-t-elle la question de la 'formation et de la sensibilisation' du personnel ?",
+        "options": [
+            "Formation uniquement sur les comp\u00e9tences techniques",
+            "Sensibilisation \u00e0 la s\u00e9curit\u00e9 de l'information et formation ad\u00e9quate",
+            "Formation centr\u00e9e sur le service client",
+            "Sensibilisation aux objectifs commerciaux"
+        ],
+        "answer": "Sensibilisation \u00e0 la s\u00e9curit\u00e9 de l'information et formation ad\u00e9quate"
+    }
+]
