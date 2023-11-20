@@ -1,0 +1,11 @@
+ul#options li {
+    cursor: pointer;
+}
+
+ul#options li:hover {
+    background-color: #f8f9fa;
+}
+
+#score {
+    font-size: 18px;
+}
