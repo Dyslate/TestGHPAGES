@@ -36,6 +36,24 @@ function loadNextQuestion() {
     });
 }
 
+
+function getScoreMessage(score) {
+    if (score >= 0 && score <= 5) {
+        return "Échec";
+    } else if (score > 5 && score <= 10) {
+        return "Pas terrible";
+    } else if (score > 10 && score <= 15) {
+        return "Peut mieux faire";
+    } else if (score > 15 && score <= 19) {
+        return "Bien joué";
+    } else if (score === 20) {
+        return "Tu es incollable";
+    }
+    return ""; // Retourne une chaîne vide si le score n'entre dans aucune catégorie
+}
+
+
+
 function checkAnswer(selectedOption, question) {
     const correct = selectedOption === question.answer;
     if (correct) {
@@ -53,8 +71,8 @@ function checkAnswer(selectedOption, question) {
 
 function displayResults() {
     const resultsElement = document.getElementById('score');
-    // Modifier la ligne suivante pour inclure le nombre total de questions
-    resultsElement.innerHTML = `<strong>Votre score : ${score}/${totalQuestions}</strong><ul class="list-group mt-3">`;
+    const scoreMessage = getScoreMessage(score); // Utilise la nouvelle fonction pour obtenir le message
+    resultsElement.innerHTML = `<strong>Votre score : ${score}/${totalQuestions}</strong> - ${scoreMessage}<ul class="list-group mt-3">`;
     results.forEach(result => {
         resultsElement.innerHTML += `
             <li class="list-group-item ${result.correct ? 'list-group-item-success' : 'list-group-item-danger'}">
