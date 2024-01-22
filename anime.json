@@ -1,0 +1,202 @@
+[
+    {
+        "question": "Quel est le vrai nom de L dans 'Death Note' ?",
+        "options": [
+            "Light Yagami",
+            "Ryuk",
+            "Lawliet",
+            "Misa Amane"
+        ],
+        "answer": "Lawliet"
+    },
+    {
+        "question": "Dans 'Naruto', qui est le premier adversaire de Naruto lors de l'examen Chunin ?",
+        "options": [
+            "Neji Hyuga",
+            "Sasuke Uchiha",
+            "Kiba Inuzuka",
+            "Gaara"
+        ],
+        "answer": "Kiba Inuzuka"
+    },
+     {
+        "question": "Quel est le vrai nom de L dans 'Death Note' ?",
+        "options": [
+            "Light Yagami",
+            "Ryuk",
+            "Lawliet",
+            "Misa Amane"
+        ],
+        "answer": "Lawliet"
+    },
+    {
+        "question": "Dans 'Naruto', qui est le premier adversaire de Naruto lors de l'examen Chunin ?",
+        "options": [
+            "Neji Hyuga",
+            "Sasuke Uchiha",
+            "Kiba Inuzuka",
+            "Gaara"
+        ],
+        "answer": "Kiba Inuzuka"
+    },
+    {
+        "question": "Quel est le nom du titan principal dans 'Attack on Titan' ?",
+        "options": [
+            "Titan Colossal",
+            "Titan Cuirassé",
+            "Titan Féminin",
+            "Titan Assaillant"
+        ],
+        "answer": "Titan Assaillant"
+    },
+    {
+        "question": "Qui est le créateur de 'One Piece' ?",
+        "options": [
+            "Eiichiro Oda",
+            "Masashi Kishimoto",
+            "Tite Kubo",
+            "Hajime Isayama"
+        ],
+        "answer": "Eiichiro Oda"
+    },
+    {
+        "question": "Quel objet est utilisé pour invoquer les créatures dans 'Yu-Gi-Oh!' ?",
+        "options": [
+            "Cartes Magiques",
+            "Pokéballs",
+            "Puzzle du Millénium",
+            "Dés du Destin"
+        ],
+        "answer": "Cartes Magiques"
+    },
+    {
+        "question": "Quel est le nom de la pierre qui donne des pouvoirs dans 'Fullmetal Alchemist' ?",
+        "options": [
+            "Pierre de Lune",
+            "Pierre Philosophale",
+            "Pierre d'Âme",
+            "Pierre de Feu"
+        ],
+        "answer": "Pierre Philosophale"
+    },
+    {
+        "question": "Dans 'Dragon Ball Z', qui est le premier personnage à atteindre le niveau de Super Saiyan ?",
+        "options": [
+            "Vegeta",
+            "Goku",
+            "Trunks",
+            "Gohan"
+        ],
+        "answer": "Goku"
+    },
+    {
+        "question": "Quel est le nom du navire principal dans 'One Piece' ?",
+        "options": [
+            "Thousand Sunny",
+            "Merry Go",
+            "Baratie",
+            "Red Force"
+        ],
+        "answer": "Thousand Sunny"
+    },
+    {
+        "question": "Dans 'My Hero Academia', quel est le pouvoir de Izuku Midoriya ?",
+        "options": [
+            "One For All",
+            "All For One",
+            "Explosion",
+            "Half-Cold Half-Hot"
+        ],
+        "answer": "One For All"
+    },
+    {
+        "question": "Quel est le nom du démon renard à neuf queues dans 'Naruto' ?",
+        "options": [
+            "Shukaku",
+            "Kurama",
+            "Gyuki",
+            "Matatabi"
+        ],
+        "answer": "Kurama"
+    },
+    {
+        "question": "Qui est le principal antagoniste dans 'Death Note' ?",
+        "options": [
+            "L",
+            "Light Yagami",
+            "Ryuk",
+            "Near"
+        ],
+        "answer": "Light Yagami"
+    },
+    {
+        "question": "Dans 'Attack on Titan', quelle est la véritable identité du Titan Colossal ?",
+        "options": [
+            "Reiner Braun",
+            "Eren Yeager",
+            "Bertholdt Hoover",
+            "Armin Arlelt"
+        ],
+        "answer": "Bertholdt Hoover"
+    },
+    {
+        "question": "Quel est le nom de l'organisation criminelle dans 'Naruto' ?",
+        "options": [
+            "Akatsuki",
+            "Shinobi Alliance",
+            "Seven Ninja Swordsmen",
+            "Sound Four"
+        ],
+        "answer": "Akatsuki"
+    },
+    {
+        "question": "Qui est le capitaine de l'équipage du Chapeau de Paille dans 'One Piece' ?",
+        "options": [
+            "Roronoa Zoro",
+            "Sanji",
+            "Nami",
+            "Monkey D. Luffy"
+        ],
+        "answer": "Monkey D. Luffy"
+    },
+   {
+        "question": "Dans quel anime le personnage principal mange-t-il un fruit du démon ?",
+        "options": [
+            "Naruto",
+            "One Piece",
+            "Bleach",
+            "My Hero Academia"
+        ],
+        "answer": "One Piece"
+    },
+   {
+        "question": "Qui est le créateur de Dragon Ball ?",
+        "options": [
+            "Eiichiro Oda",
+            "Masashi Kishimoto",
+            "Akira Toriyama",
+            "Tite Kubo"
+        ],
+        "answer": "Akira Toriyama"
+    },
+    {
+        "question": "Dans 'Attack on Titan', quelle est la particularité de la ville où vit Eren au début de la série ?",
+        "options": [
+            "Elle flotte dans le ciel",
+            "Elle est sous terre",
+            "Elle est entourée de murs géants",
+            "Elle est invisible"
+        ],
+        "answer": "Elle est entourée de murs géants"
+    },
+  {
+        "question": "Quelle est la particularité des alchimistes dans 'Fullmetal Alchemist' ?",
+        "options": [
+            "Ils peuvent voler",
+            "Ils utilisent la magie",
+            "Ils transforment les métaux",
+            "Ils transmutent les éléments"
+        ],
+        "answer": "Ils transmutent les éléments"
+  }
+]
