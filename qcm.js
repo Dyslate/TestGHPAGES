@@ -3,7 +3,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let results = []; // Pour stocker les résultats de chaque question
 
-fetch('ISO_IEC_27001_QCM_Relevant_Questions.json')
+fetch('anime.json')
     .then(response => response.json())
     .then(data => {
         questions = data;
