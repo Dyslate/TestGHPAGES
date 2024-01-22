@@ -2,11 +2,13 @@ let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 let results = []; // Pour stocker les résultats de chaque question
+let totalQuestions = 0; // Nouvelle variable pour stocker le nombre total de questions
 
 fetch('anime.json')
     .then(response => response.json())
     .then(data => {
         questions = data;
+        totalQuestions = questions.length; // Définir le nombre total de questions ici
         loadNextQuestion();
     })
     .catch(error => console.error("Erreur lors du chargement du QCM:", error));
@@ -51,7 +53,8 @@ function checkAnswer(selectedOption, question) {
 
 function displayResults() {
     const resultsElement = document.getElementById('score');
-    resultsElement.innerHTML = `<strong>Votre score : ${score}</strong><ul class="list-group mt-3">`;
+    // Modifier la ligne suivante pour inclure le nombre total de questions
+    resultsElement.innerHTML = `<strong>Votre score : ${score}/${totalQuestions}</strong><ul class="list-group mt-3">`;
     results.forEach(result => {
         resultsElement.innerHTML += `
             <li class="list-group-item ${result.correct ? 'list-group-item-success' : 'list-group-item-danger'}">
@@ -62,3 +65,4 @@ function displayResults() {
     });
     resultsElement.innerHTML += '</ul>';
 }
+
