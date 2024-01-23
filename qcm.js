@@ -25,6 +25,16 @@ function loadNextQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
 
     document.getElementById('question').textContent = currentQuestion.question;
+
+    // Ajoutez cette partie pour afficher l'image
+    const questionImage = document.getElementById('questionImage'); // Assurez-vous qu'il y a un élément avec cet id dans votre HTML
+    if (currentQuestion.imgQuizz) {
+        questionImage.src = currentQuestion.image;
+        questionImage.style.display = 'block'; // Affiche l'image si elle existe
+    } else {
+        questionImage.style.display = 'none'; // Cache l'image si elle n'existe pas pour la question actuelle
+    }
+
     const optionsList = document.getElementById('options');
     optionsList.innerHTML = '';
     currentQuestion.options.forEach((option, index) => {
@@ -35,6 +45,7 @@ function loadNextQuestion() {
         optionsList.appendChild(li);
     });
 }
+
 
 
 function getScoreMessage(score) {
