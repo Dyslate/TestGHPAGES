@@ -48,6 +48,10 @@
             overflow: hidden;
         }
 
+        .highlight {
+            background-color: #bdecb6; /* Couleur de mise en évidence pour les zones de dépôt */
+        }
+
         .error {
             color: red;
             font-weight: bold;
@@ -105,6 +109,7 @@
 
         function drag(ev) {
             ev.dataTransfer.setData("text", ev.target.id);
+            highlightDroppableAreas(ev.target.id);
         }
 
         function drop(ev) {
@@ -120,6 +125,21 @@
                     document.getElementById("message").textContent = "Placement incorrect !";
                 }
             }
+            removeHighlight();
+        }
+
+        function highlightDroppableAreas(elementId) {
+            document.querySelectorAll('.category').forEach(category => {
+                if (correctMappings[category.id].includes(elementId)) {
+                    category.classList.add('highlight');
+                }
+            });
+        }
+
+        function removeHighlight() {
+            document.querySelectorAll('.category').forEach(category => {
+                category.classList.remove('highlight');
+            });
         }
 
         document.querySelectorAll('#elements .element').forEach(item => {
