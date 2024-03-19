@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice Drag and Drop - Réseau</title>
+    <style>
+        #elements div, .categories div {
+            margin: 10px;
+            padding: 15px;
+            min-width: 120px;
+            background-color: #f0f0f0;
+            border: 1px solid #333;
+            text-align: center;
+            cursor: move;
+        }
+
+        .categories div {
+            background-color: #ddd;
+            overflow: auto;
+            min-height: 150px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Placez les éléments dans les bonnes catégories</h2>
+
+    <div id="elements">
+        <!-- Les éléments à déplacer -->
+        <div draggable="true" id="DNS-NS">DNS-NS</div>
+        <div draggable="true" id="WAF">WAF</div>
+        <div draggable="true" id="AV-EDR">AV/EDR</div>
+        <div draggable="true" id="SMTP">SMTP</div>
+        <div draggable="true" id="Apache2">Apache2</div>
+        <div draggable="true" id="LB">LB</div>
+        <div draggable="true" id="MFA">MFA</div>
+        <div draggable="true" id="Radius">Radius</div>
+        <div draggable="true" id="DLP">DLP</div>
+        <div draggable="true" id="XDR">XDR</div>
+        <div draggable="true" id="RP">RP</div>
+        <div draggable="true" id="Web-Proxy">Web Proxy</div>
+        <div draggable="true" id="Sandbox">Sandbox</div>
+        <div draggable="true" id="Mail-Proxy">Mail Proxy</div>
+        <div draggable="true" id="VPN">VPN</div>
+        <div draggable="true" id="DNS-Forwarder">DNS Forwarder</div>
+        <div draggable="true" id="DHCP">DHCP</div>
+    </div>
+
+    <div class="categories">
+        <div id="DMZ-in" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ in:</div>
+        <div id="DMZ-out" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ out:</div>
+        <div id="DMZ-in-out" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ in/out:</div>
+        <div id="LAN" ondrop="drop(event)" ondragover="allowDrop(event)">LAN:</div>
+    </div>
+
+    <p id="message" class="error"></p>
+
+    <script>
+        const correctMappings = {
+            "DMZ-in": ["DNS-NS", "WAF", "RP", "VPN"],
+            "DMZ-out": ["Web-Proxy", "DNS-Forwarder"],
+            "DMZ-in-out": ["SMTP", "Mail-Proxy"],
+            "LAN": ["AV-EDR", "Apache2", "LB", "MFA", "Radius", "DLP", "XDR", "Sandbox", "DHCP"]
+        };
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var target = ev.target;
+
+            if (target.className.indexOf('categories') !== -1) {
+                target = target.querySelector('div') || target;
+            }
+
+            if (correctMappings[target.id].includes(data)) {
+                target.appendChild(document.getElementById(data));
+                document.getElementById("message").textContent = "";
+            } else {
+                document.getElementById("message").textContent = "Placement incorrect !";
+            }
+        }
+
+        document.querySelectorAll('#elements div').forEach(item => {
+            item.addEventListener('dragstart', drag);
+        });
+    </script>
+</body>
+</html>
