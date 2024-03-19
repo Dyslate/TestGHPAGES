@@ -98,10 +98,12 @@
 
     <script>
         const correctMappings = {
-            "DMZ-in": ["DNS-NS", "WAF"],
-            "DMZ-out": ["SMTP", "Mail-Proxy"],
-            // Ajoutez d'autres mappings corrects ici
+            "DMZ-in": ["DNS-NS", "WAF", "RP", "VPN"],
+            "DMZ-out": ["Web-Proxy", "DNS-Forwarder"],
+            "DMZ-in-out": ["SMTP", "Mail-Proxy"],
+            "LAN": ["AV-EDR", "Apache2", "LB", "MFA", "Radius", "DLP", "XDR", "Sandbox", "DHCP"]
         };
+
 
         function allowDrop(ev) {
             ev.preventDefault();
