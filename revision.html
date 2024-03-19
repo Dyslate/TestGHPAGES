@@ -2,29 +2,59 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Exercice Drag and Drop - Réseau</title>
+    <title>Exercice Drag and Drop - Configuration Réseau</title>
     <style>
-        #elements div, .categories div {
-            margin: 10px;
-            padding: 15px;
-            min-width: 120px;
-            background-color: #f0f0f0;
-            border: 1px solid #333;
-            text-align: center;
-            cursor: move;
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
         }
 
-        .categories div {
-            background-color: #ddd;
-            overflow: auto;
-            min-height: 150px;
+        #elements {
+            width: 30%;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .element {
+            margin: 5px;
+            padding: 10px;
+            background-color: #e1e1e1;
+            border: 1px solid #bdbdbd;
+            cursor: pointer;
+        }
+
+        .categories {
+            width: 60%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .category {
+            flex-grow: 1;
+            margin: 10px;
+            padding: 20px;
+            width: 45%;
+            height: 140px;
+            border: 2px dashed #ccc;
+            background-color: #fafafa;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100px;
+            overflow: hidden;
         }
 
         .error {
             color: red;
             font-weight: bold;
+            text-align: center;
         }
     </style>
+
 
 </head>
 <body>
@@ -81,19 +111,17 @@
             var data = ev.dataTransfer.getData("text");
             var target = ev.target;
 
-            if (target.className.indexOf('categories') !== -1) {
-                target = target.querySelector('div') || target;
-            }
-
-            if (correctMappings[target.id].includes(data)) {
-                target.appendChild(document.getElementById(data));
-                document.getElementById("message").textContent = "";
-            } else {
-                document.getElementById("message").textContent = "Placement incorrect !";
+            if (target.className.indexOf('category') !== -1) {
+                if (correctMappings[target.id].includes(data)) {
+                    target.appendChild(document.getElementById(data));
+                    document.getElementById("message").textContent = "";
+                } else {
+                    document.getElementById("message").textContent = "Placement incorrect !";
+                }
             }
         }
 
-        document.querySelectorAll('#elements div').forEach(item => {
+        document.querySelectorAll('#elements .element').forEach(item => {
             item.addEventListener('dragstart', drag);
         });
     </script>
