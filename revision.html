@@ -60,7 +60,6 @@
             text-align: center;
         }
     </style>
-
 </head>
 <body>
     <h2>Glissez les éléments vers les catégories correspondantes</h2>
@@ -114,40 +113,30 @@
 
         function drag(ev) {
             ev.dataTransfer.setData("text", ev.target.id);
-            highlightDroppableAreas(ev.target.id);
         }
 
         function drop(ev) {
             ev.preventDefault();
             var data = ev.dataTransfer.getData("text");
-            var target = ev.target.closest('.category'); // Assurez-vous de cibler la catégorie, pas un enfant
+            var target = ev.target.closest('.category');
 
             if (target && correctMappings[target.id].includes(data)) {
                 target.appendChild(document.getElementById(data));
-                document.getElementById("message").textContent = "";
+                document.getElementById("feedback").textContent = "Bien placé!";
+                document.getElementById("feedback").className = "message";
             } else {
-                document.getElementById("message").textContent = "Placement incorrect !";
+                document.getElementById("feedback").textContent = "Placement incorrect!";
+                document.getElementById("feedback").className = "error";
             }
-            removeHighlight();
-        }
-
-        function highlightDroppableAreas(elementId) {
-            document.querySelectorAll('.category').forEach(category => {
-                if (correctMappings[category.id] && correctMappings[category.id].includes(elementId)) {
-                    category.classList.add('highlight');
-                }
-            });
-        }
-
-        function removeHighlight() {
-            document.querySelectorAll('.category').forEach(category => {
-                category.classList.remove('highlight');
-            });
         }
 
         document.querySelectorAll('#elements .element').forEach(item => {
             item.addEventListener('dragstart', drag);
-            item.addEventListener('dragend', removeHighlight);
+        });
+
+        document.querySelectorAll('.category').forEach(category => {
+            category.addEventListener('dragover', allowDrop);
+            category.addEventListener('drop', drop);
         });
     </script>
 </body>
