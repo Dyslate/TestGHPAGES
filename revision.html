@@ -56,6 +56,7 @@
     </style>
 
 
+
 </head>
 <body>
     <h2>Placez les éléments dans les bonnes catégories</h2>
@@ -111,8 +112,8 @@
             var data = ev.dataTransfer.getData("text");
             var target = ev.target;
 
-            if (target.className.indexOf('category') !== -1) {
-                if (correctMappings[target.id].includes(data)) {
+            if (target.className.includes('category')) {
+                if (correctMappings[target.id] && correctMappings[target.id].includes(data)) {
                     target.appendChild(document.getElementById(data));
                     document.getElementById("message").textContent = "";
                 } else {
@@ -122,6 +123,7 @@
         }
 
         document.querySelectorAll('#elements .element').forEach(item => {
+            item.setAttribute('draggable', true);
             item.addEventListener('dragstart', drag);
         });
     </script>
