@@ -62,21 +62,37 @@
 <body>
     <h2>Glissez les éléments vers les catégories correspondantes</h2>
 
-    <div class="container">
-        <div id="elements">
-            <!-- Les éléments à déplacer seront ici -->
-            <div draggable="true" id="DNS-NS" class="element" ondragstart="drag(event)">DNS-NS</div>
-            <div draggable="true" id="WAF" class="element" ondragstart="drag(event)">WAF</div>
-            <!-- Ajoutez d'autres éléments ici -->
-        </div>
-
-        <div class="categories">
-            <!-- Les catégories où déposer les éléments -->
-            <div id="DMZ-in" class="category" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ in</div>
-            <div id="DMZ-out" class="category" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ out</div>
-            <!-- Ajoutez d'autres catégories si nécessaire -->
-        </div>
+<div class="container">
+    <div id="elements">
+        <!-- Les éléments à déplacer seront ici -->
+        <div draggable="true" id="DNS-NS" class="element" ondragstart="drag(event)">DNS-NS</div>
+        <div draggable="true" id="WAF" class="element" ondragstart="drag(event)">WAF</div>
+        <div draggable="true" id="AV-EDR" class="element" ondragstart="drag(event)">AV/EDR</div>
+        <div draggable="true" id="SMTP" class="element" ondragstart="drag(event)">SMTP</div>
+        <div draggable="true" id="Apache2" class="element" ondragstart="drag(event)">Apache2</div>
+        <div draggable="true" id="LB" class="element" ondragstart="drag(event)">LB</div>
+        <div draggable="true" id="MFA" class="element" ondragstart="drag(event)">MFA</div>
+        <div draggable="true" id="Radius" class="element" ondragstart="drag(event)">Radius</div>
+        <div draggable="true" id="DLP" class="element" ondragstart="drag(event)">DLP</div>
+        <div draggable="true" id="XDR" class="element" ondragstart="drag(event)">XDR</div>
+        <div draggable="true" id="RP" class="element" ondragstart="drag(event)">RP</div>
+        <div draggable="true" id="Web-Proxy" class="element" ondragstart="drag(event)">Web Proxy</div>
+        <div draggable="true" id="Sandbox" class="element" ondragstart="drag(event)">Sandbox</div>
+        <div draggable="true" id="Mail-Proxy" class="element" ondragstart="drag(event)">Mail Proxy</div>
+        <div draggable="true" id="VPN" class="element" ondragstart="drag(event)">VPN</div>
+        <div draggable="true" id="DNS-Forwarder" class="element" ondragstart="drag(event)">DNS Forwarder</div>
+        <div draggable="true" id="DHCP" class="element" ondragstart="drag(event)">DHCP</div>
     </div>
+
+    <div class="categories">
+        <!-- Les catégories où déposer les éléments -->
+        <div id="DMZ-in" class="category" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ in</div>
+        <div id="DMZ-out" class="category" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ out</div>
+        <div id="DMZ-in-out" class="category" ondrop="drop(event)" ondragover="allowDrop(event)">DMZ in/out</div>
+        <div id="LAN" class="category" ondrop="drop(event)" ondragover="allowDrop(event)">LAN</div>
+    </div>
+</div>
+
 
     <p id="message" class="error"></p>
 
